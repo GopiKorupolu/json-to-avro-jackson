@@ -46,7 +46,7 @@ public class JsontoAvroUsingJacksonApplication {
         try {
             AvroMapper mapper = new AvroMapper();
 
-            //Convert to Avro Object Array
+            //Convert Json to Avro byte Array
             avroData = mapper.writer(avroSchema)
                     .writeValueAsBytes(empJsonObj);
 
@@ -64,7 +64,7 @@ public class JsontoAvroUsingJacksonApplication {
         try {
             AvroMapper mapper = new AvroMapper();
 
-            //Convert Avro date to Json Object
+            //Convert Avro byte array to Json Object
             empl = mapper.reader(Employee.class)
                     .with(avroSchema)
                     .readValue(avroData);
